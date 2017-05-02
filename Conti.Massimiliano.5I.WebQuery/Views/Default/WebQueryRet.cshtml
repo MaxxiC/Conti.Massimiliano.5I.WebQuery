@@ -1,0 +1,51 @@
+﻿@using System.Data
+@model System.Data.DataTable
+
+@{
+    ViewBag.Title = "WebQuery";
+}
+
+
+<div style="text-align: center;">
+    <br />
+    <h1> Web Query </h1>
+    <button type="button" onclick="location.href='@Url.Action("Index", "Default")'" class="btn btn-warning">
+        Index
+    </button>
+    <br />
+    <br />
+</div>
+
+
+<div style="text-align: center;" class="container table-responsive">
+
+    <button type="button" onclick="location.href='@Url.Action("WebQuery", "Default")'" class="btn">
+        Indietro
+    </button>
+    <br />
+    <br />
+
+
+    <table class="table table-bordered">
+        <tr>
+            @for (int i = 0; i < @Model.Columns.Count; i++)
+            {
+                <td>ff</td>
+            }
+        </tr>
+        @foreach (DataRow row in @Model.Rows)
+        {
+            <tr>
+
+                @for (int i = 0; i < @Model.Columns.Count; i++)
+                {
+                    <td>@row[i]</td>
+                }
+
+            </tr>
+        }
+    </table>
+    <button type="button" onclick="location.href='@Url.Action("WebQuery", "Default")'" class="btn">
+        Indietro
+    </button>
+</div>
